@@ -1,0 +1,65 @@
+KUBERNETES COMMANDS 
+| Command                | Description                                 |
+| ---------------------- | ------------------------------------------- |
+| `kubectl version`      | Show the client and server version          |
+| `kubectl cluster-info` | Show cluster endpoint information           |
+| `kubectl get nodes`    | List all nodes                              |
+| `kubectl get all`      | List all resources in the default namespace |
+| `kubectl config view`  | Show Kubernetes config details              |
+
+PODS :
+| Command                               | Description                    |
+| ------------------------------------- | ------------------------------ |
+| `kubectl get pods`                    | List all pods                  |
+| `kubectl describe pod <pod-name>`     | Show detailed info about a pod |
+| `kubectl delete pod <pod-name>`       | Delete a specific pod          |
+| `kubectl logs <pod-name>`             | Show logs of a pod             |
+| `kubectl exec -it <pod-name> -- bash` | Access the pod shell           |
+
+DEPLOYMENT:
+| Command                                        | Description                       |
+| ---------------------------------------------- | --------------------------------- |
+| `kubectl get deployments`                      | List all deployments              |
+| `kubectl create -f <file.yaml>`                | Create resources from a YAML file |
+| `kubectl apply -f <file.yaml>`                 | Apply updates from a YAML file    |
+| `kubectl delete -f <file.yaml>`                | Delete resources from a YAML file |
+| `kubectl rollout status deployment/<name>`     | Check deployment status           |
+| `kubectl scale deployment <name> --replicas=3` | Scale deployment pods             |
+
+REPLICASETS AND SCALING:
+| Command                         | Description                   |
+| ------------------------------- | ----------------------------- |
+| `kubectl get rs`                | List ReplicaSets              |
+| `kubectl describe rs <rs-name>` | Show details about ReplicaSet |
+
+SERVICES MANAGEMENT:
+| Command                                                      | Description                    |
+| ------------------------------------------------------------ | ------------------------------ |
+| `kubectl get svc`                                            | List services                  |
+| `kubectl expose deployment <name> --type=NodePort --port=80` | Expose deployment as a service |
+| `kubectl port-forward pod/<pod-name> 8080:80`                | Port forward local to pod      |
+
+CONFIGMAP AND SECRET:
+| Command                                                         | Description      |
+| --------------------------------------------------------------- | ---------------- |
+| `kubectl create configmap <name> --from-literal=key=value`      | Create ConfigMap |
+| `kubectl get configmaps`                                        | List ConfigMaps  |
+| `kubectl create secret generic <name> --from-literal=key=value` | Create a Secret  |
+| `kubectl get secrets`                                           | List Secrets     |
+
+NAMESPACE:
+| Command                                                   | Description                                  |
+| --------------------------------------------------------- | -------------------------------------------- |
+| `kubectl get namespaces`                                  | List all namespaces                          |
+| `kubectl create namespace <name>`                         | Create a new namespace                       |
+| `kubectl delete namespace <name>`                         | Delete a namespace                           |
+| `kubectl config set-context --current --namespace=<name>` | Switch default namespace for current context |
+
+ADVANCED AND TROUBLESHOOTING:
+| Command                              | Description                                            |
+| ------------------------------------ | ------------------------------------------------------ |
+| `kubectl top nodes`                  | Show resource usage of nodes (requires metrics server) |
+| `kubectl top pods`                   | Show pod CPU/memory usage                              |
+| `kubectl describe <resource> <name>` | Show detailed resource info                            |
+| `kubectl get events`                 | View recent events in the cluster                      |
+
