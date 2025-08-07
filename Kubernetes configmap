@@ -1,0 +1,26 @@
+Config Maps
+  In Kubernetes, a ConfigMap is used to inject configuration data (like environment variables, command-line arguments, or config files) into your pods and containers.
+
+Ways to Create a ConfigMap
+ 1. From literal key-value pairs:
+      kubectl create configmap my-config --from-literal=APP_MODE=production --from-literal=APP_PORT=8080
+ 2. From a file:
+      kubectl create configmap app-config --from-file=app.properties
+
+If the file is like:
+config.mode=debug
+config.timeout=30
+
+3. From a directory:
+      kubectl create configmap app-config --from-file=/etc/config/
+4. From a YAML manifest:
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  APP_MODE: "production"
+  APP_PORT: "8080"
+Apply it using :
+      kubectl apply -f configmap.yaml
+
