@@ -1,0 +1,15 @@
+In Kubernetes, the master node (also known as the control plane) is responsible for managing the cluster.
+It makes global decisions about the cluster (like scheduling) and detects and responds to cluster events (like starting up a new pod when a deployment’s replicas field is unsatisfied).
++-----------------------------+
+|        Master Node          |
+|                             |
+|  +-----------------------+  |
+|  |   kube-apiserver      |  |
+|  +-----------------------+  |
+|  |   etcd                |  |
+|  +-----------------------+  |
+|  |   kube-scheduler      |  |
+|  +-----------------------+  |
+|  |   controller-manager  |  |
+|  +-----------------------+  |
++-----------------------------+
