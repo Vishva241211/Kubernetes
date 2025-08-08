@@ -45,3 +45,54 @@ spec:
     port: 80
     targetPort: 80
   type: NodePort
+
+1. apiVersion: apps/v1
+    This tells Kubernetes which API version to use for this resource.
+    apps/v1 is the stable API group for Deployments.
+
+2. kind: Deployment
+    This specifies the type of Kubernetes object you want to create.
+    Deployment is used to manage stateless applications and ensures that the desired number of replicas (pods) are always running.
+
+3. metadata
+metadata:
+  name: nginx-deployment
+    name: The name of the Deployment resource (nginx-deployment).
+    Metadata is information about the object.
+
+4. spec
+This is the “specification” of what the Deployment should do.
+
+4.1 selector
+selector:
+  matchLabels:
+    app: nginx
+    The selector tells the Deployment which pods it should manage.
+    Here, it looks for pods with the label app=nginx.
+
+4.2 replicas
+replicas: 2
+    This tells Kubernetes to run 2 pods of this application at all times.
+    If one pod fails, the Deployment creates a new one to maintain the count.
+
+4.3 template
+
+template:
+  metadata:
+    labels:
+      app: nginx
+    The template is the pod definition used to create new pods.
+    It must have labels that match the selector above — in this case, app: nginx.
+
+4.4 spec inside template
+
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+    containers: Defines the list of containers that will run inside each pod.
+    name: Name of the container (nginx).
+    image: Which Docker image to use (nginx:1.14.2 from Docker Hub).
+    ports: Exposes port 80 inside the container (HTTP).
