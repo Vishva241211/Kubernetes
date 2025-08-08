@@ -1,0 +1,29 @@
+In Kubernetes, you can create Pods in two main ways:
+    1.Directly with a Pod YAML (simple, but not recommended for production)
+    2.Indirectly via a higher-level object like a Deployment (recommended, because it handles scaling and self-healing)
+
+1. Creating a Pod directly:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+
+Steps:
+# Save as pod.yaml
+nano pod.yaml
+
+# Create the Pod
+kubectl apply -f pod.yaml
+
+# Check if it’s running
+kubectl get pods
+
+      
