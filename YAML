@@ -1,0 +1,47 @@
+In Kubernetes, a YAML file is just a configuration document that tells Kubernetes what you want — and Kubernetes figures out how to make it happen.
+
+Basic YAML File Structure:
+Every Kubernetes YAML file usually has these 4 required fields:
+apiVersion: <API version>   # Defines the version of the Kubernetes API to use
+kind: <Resource type>       # What you are creating (Deployment, Pod, Service...)
+metadata:                   # Information about the object (name, labels)
+  name: <name>
+spec:                       # The desired state/configuration
+  ...                       # Specific to the resource type
+
+Example 1 – Deployment YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.25
+        ports:
+        - containerPort: 80
+
+Example 2 – Service YAML:
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort
