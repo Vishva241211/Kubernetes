@@ -4,6 +4,17 @@ Helm is basically a package manager for Kubernetes, similar to how:
   *.yum/dnf works for CentOS/RedHat
   *.pip works for Python
 
+Finding & Inspecting Charts
+| Command                    | Purpose                                             |
+| -------------------------- | --------------------------------------------------- |
+| `helm search repo <name>`  | Search charts in your added repositories            |
+| `helm search hub <name>`   | Search charts in the Helm Hub (global index)        |
+| `helm show chart <chart>`  | Show chart metadata from `Chart.yaml`               |
+| `helm show values <chart>` | Show default `values.yaml` (customizable settings)  |
+| `helm show all <chart>`    | Show all chart info (metadata + values + templates) |
+
+
+
 Setup & Info:
 | Command                      | What It Does in Kubernetes                                                      |
 | ---------------------------- | ------------------------------------------------------------------------------- |
