@@ -1,0 +1,5 @@
+Helm is basically a package manager for Kubernetes, similar to how:
+
+  *.apt works for Ubuntu/Debian
+  *.yum/dnf works for CentOS/RedHat
+  *.pip works for Python
