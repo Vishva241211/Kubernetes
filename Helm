@@ -3,3 +3,40 @@ Helm is basically a package manager for Kubernetes, similar to how:
   *.apt works for Ubuntu/Debian
   *.yum/dnf works for CentOS/RedHat
   *.pip works for Python
+
+Setup & Info:
+| Command                      | What It Does in Kubernetes                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------- |
+| `helm version`               | Checks Helm client version and connection to Kubernetes API server              |
+| `helm repo add <name> <url>` | Adds a Helm chart repository (like Bitnami) for installing apps into Kubernetes |
+| `helm repo update`           | Refreshes chart listings so you get the latest versions                         |
+| `helm search repo <keyword>` | Finds charts you can deploy in Kubernetes                                       |
+| `helm search hub <keyword>`  | Searches the Helm Hub for charts                                                |
+
+Deploying Applications:
+| Command                               | Kubernetes Effect                                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `helm install <release-name> <chart>` | Deploys a chart’s resources (Deployments, Services, ConfigMaps, etc.) into the Kubernetes cluster |
+| `helm list`                           | Shows all Helm releases currently running in Kubernetes                                           |
+| `helm status <release-name>`          | Displays the Kubernetes resources and state for a specific release                                |
+
+Managing Existing Apps:
+| Command                                   | Kubernetes Effect                                                     |
+| ----------------------------------------- | --------------------------------------------------------------------- |
+| `helm upgrade <release-name> <chart>`     | Updates Kubernetes resources for that release (changing YAML configs) |
+| `helm rollback <release-name> <revision>` | Reverts Kubernetes resources to an earlier version                    |
+| `helm history <release-name>`             | Shows the revision history stored in Kubernetes for that release      |
+
+ Removing Applications:
+| Command                                        | Kubernetes Effect                                             |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| `helm uninstall <release-name>`                | Deletes all Kubernetes resources created by that Helm release |
+| `helm uninstall <release-name> --keep-history` | Deletes resources but keeps the release history in Kubernetes |
+
+Testing & Debugging:
+| Command                                | Kubernetes Effect                                                 |
+| -------------------------------------- | ----------------------------------------------------------------- |
+| `helm template <release-name> <chart>` | Generates the Kubernetes YAML locally without applying it         |
+| `helm get all <release-name>`          | Shows all Kubernetes manifests, hooks, and values for the release |
+| `helm get manifest <release-name>`     | Displays only the Kubernetes manifests applied for that release   |
+
