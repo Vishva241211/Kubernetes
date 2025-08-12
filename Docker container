@@ -1,0 +1,19 @@
+A Docker container is basically a running instance of a Docker image — like how a program is an instance of an application.
+
+How it works:
+
+    Docker Image – A read-only template with your application code + dependencies.
+    Container – When you run an image, Docker adds a writable layer on top and executes it as a separate process on your machine.
+
+Common Docker Container Commands:
+| Command                               | Description                                        |
+| ------------------------------------- | -------------------------------------------------- |
+| `docker run -d -p 8080:80 nginx`      | Run Nginx in detached mode, mapping port 8080 → 80 |
+| `docker ps`                           | Show running containers                            |
+| `docker ps -a`                        | Show all containers (running + stopped)            |
+| `docker stop <container_id>`          | Stop a running container                           |
+| `docker start <container_id>`         | Start a stopped container                          |
+| `docker restart <container_id>`       | Restart a container                                |
+| `docker rm <container_id>`            | Remove a container                                 |
+| `docker exec -it <container_id> bash` | Get an interactive shell in the container          |
+| `docker logs <container_id>`          | View logs from a container                         |
