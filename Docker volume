@@ -1,0 +1,19 @@
+A Docker volume is a special storage mechanism for persisting data used by Docker containers.
+It keeps data outside the container’s writable layer, so your data isn’t lost when the container stops, restarts, or is deleted.
+
+Why use Docker volumes?
+
+    Persistence: Keep database files, logs, uploads, etc. safe beyond a container’s life.
+    Sharing: Multiple containers can access the same data.
+    Performance: Volumes are optimized for Docker’s storage driver.
+    Portability: Easier to back up, restore, or move data.
+
+Common Docker Volume Commands:
+| Command                       | Description                 |
+| ----------------------------- | --------------------------- |
+| `docker volume create myvol`  | Create a volume             |
+| `docker volume ls`            | List all volumes            |
+| `docker volume inspect myvol` | Show details about a volume |
+| `docker volume rm myvol`      | Remove a volume             |
+| `docker volume prune`         | Remove all unused volumes   |
+
