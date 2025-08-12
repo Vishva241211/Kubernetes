@@ -1,0 +1,30 @@
+Docker is a platform for building, running, and shipping applications in containers.
+
+Think of it as a way to package an application and all its dependencies into a single, lightweight unit that can run anywhere — whether on your laptop, a server, or in the cloud — without worrying about “it works on my machine” problems.
+Key Concepts
+
+    Image – A blueprint for a container (like a .zip of your app + environment).
+    Container – A running instance of an image.
+    Dockerfile – A script with instructions to build an image.
+    Docker Hub – Public registry to store and share images.
+    Docker Engine – The runtime that runs containers.
+
+Basic Docker Commands:
+| Command                          | Description                             |
+| -------------------------------- | --------------------------------------- |
+| `docker --version`               | Check Docker version                    |
+| `docker pull <image>`            | Download an image                       |
+| `docker build -t myapp .`        | Build an image from a Dockerfile        |
+| `docker run -d -p 8080:80 myapp` | Run a container in detached mode        |
+| `docker ps`                      | List running containers                 |
+| `docker ps -a`                   | List all containers (running + stopped) |
+| `docker stop <id>`               | Stop a container                        |
+| `docker rm <id>`                 | Remove a container                      |
+| `docker rmi <image>`             | Remove an image                         |
+| `docker exec -it <id> bash`      | Open a shell inside a container         |
+
+How to run a container in docker :
+  1 docker build -t myapp .
+  2 sudo usermod -aG docker $USER
+  3 docker run -p 8080:80 myapp
+  4 docker -d -p 8080:80 myapp
