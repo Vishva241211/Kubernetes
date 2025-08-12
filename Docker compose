@@ -1,0 +1,47 @@
+Docker Compose is a tool that lets you define and run multi-container Docker applications using a simple YAML file (docker-compose.yml).
+Instead of running multiple docker run ... commands manually, you can describe all your containers, networks, 
+and volumes in one file and bring them up with a single command.
+
+Why use Docker Compose?
+    Multi-container apps: Easily run apps that need multiple services (e.g., web app + database).
+    Single command start/stop: docker compose up / docker compose down.
+    Reproducible: Same environment for every developer or server.
+    Built-in networking: Services can talk to each other by name.
+
+Basic Structure of docker-compose.yml:
+version: "3.9"  # Docker Compose file format version
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+Common Docker Compose Commands:
+| Command                        | Description                                 |
+| ------------------------------ | ------------------------------------------- |
+| `docker compose up`            | Start all services in the background        |
+| `docker compose up --build`    | Build images before starting                |
+| `docker compose down`          | Stop and remove services, networks, volumes |
+| `docker compose ps`            | List running services                       |
+| `docker compose logs`          | View logs for all services                  |
+| `docker compose exec web bash` | Open a shell in the `web` service           |
+| `docker compose restart`       | Restart services                            |
+
+
+
