@@ -51,3 +51,22 @@ Testing & Debugging:
 | `helm get all <release-name>`          | Shows all Kubernetes manifests, hooks, and values for the release |
 | `helm get manifest <release-name>`     | Displays only the Kubernetes manifests applied for that release   |
 
+                    Helm chart folder structure 
+Top level:
+    Chart.yaml – Defines chart name, version, description, app version, and dependencies.
+    values.yaml – Default values for the chart. You override these when installing (helm install -f custom-values.yaml).
+
+charts/ :
+    Empty in your case.
+    This folder is for subcharts (dependencies) if your chart relies on other charts.
+
+templates/ (this is where actual Kubernetes manifests are generated from) :
+    deployment.yaml – Template for creating a Kubernetes Deployment (pods, replicas, containers, etc.).
+    _helpers.tpl – Stores helper template functions/macros to avoid repeating code.
+    hpa.yaml – Template for a Horizontal Pod Autoscaler (scales pods up/down).
+    ingress.yaml – Template for an Ingress resource (routes external traffic to services).
+    NOTES.txt – Message shown after installing/upgrading the chart (user instructions).
+    serviceaccount.yaml – Template for creating a ServiceAccount.
+    service.yaml – Template for Kubernetes Service (exposes your pods internally/externally).
+    tests/test-connection.yaml – A test Pod definition to check if the app is reachable.
+
