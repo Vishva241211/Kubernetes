@@ -1,0 +1,6 @@
+1.First put a ssh -l ec2-user -NL 3301:trojan-rds-prod-db.ctq5eqck9nph.ap-south-1.rds.amazonaws.com:3306 -i "eks-bastion-key.pem" 13.127.133.134
+in a terminal.
+2.Open a mysql workbench.
+3.show databases;
+4.use trojan_allocation;
+5.Copy a query in trojan and past in a mysql .
