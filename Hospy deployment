@@ -1,0 +1,14 @@
+1.First list a chart:
+  ls
+2.Then go to a ur directory:
+  cd hospy-gunam
+3.Then change values in yaml file in a service: 
+  vim frontend-value.yaml
+4.List a helm chart:
+  helm ls -n gunam 
+5.Then upgrade a helm chart:
+  helm upgrade gunam-forntend -f forntend-value.yaml -n gunam .
+6.Check a po is run or not:
+  kubectl get pod -n gunam 
+7.check a logs
+  kubectl logs gunam-frontend-hospy-gunam-7f5ff75cdf-cjmcv -n gunam
