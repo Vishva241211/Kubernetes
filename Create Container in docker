@@ -1,0 +1,23 @@
+Step 1: Create new directory 
+  mkdir myapp
+  cd myapp/
+Step 2:Create a new file 
+  touch index.html
+Step 3:Create a file name Dockerfile 
+Step 4:Open the Dockerfile in a vim editor and add the following lines 
+  FROM nginx
+  COPY index.html /usr/share/nginx/html
+(Important Steps):
+Step 5:Start docker & build docker image from dockerfile 
+  docker build -t myapp .
+Step 6:update a user 
+  sudo usermod -aG docker $USER
+Step 7:Run docker conatiner from the images 
+  docker run -p 8080:80 myapp
+next 
+  docker rub -d -p 8080:80 myapp
+Step 8:Put the command for to see a IP adress
+  ifconfig 
+Step 9: Copy a ip and paste and access in a http://localhost6020:80
+  Open a web browser and navigate to http://localhost :80 to see the "Hello World" meassage displayed in your web browser
+  
