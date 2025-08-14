@@ -1,0 +1,52 @@
+In Linux (and therefore in Docker containers), file permissions control who can read, write, or execute a file or directory.
+They are made up of three permission types for three user categories
+
+  1. Permission Types
+r = read (view file contents / list directory)
+w = write (modify file / add/remove files in directory)
+x = execute (run script / enter directory)
+
+  2. User Categories
+Owner – the user who owns the file.
+Group – users in the file’s group.
+Others – everyone else.
+ 
+3. Viewing Permissions
+ls -l
+Example output :
+  -rwxr-xr--  1 user group  512 Aug 14 09:00 script.sh
+
+Breakdown:
+- → type (- = file, d = directory)
+rwx → owner: read/write/execute
+r-x → group: read/execute
+r-- → others: read only
+
+Numerics method permission:
+The numeric method for file permissions uses numbers (octal values) to represent read, write, and execute rights.
+
+Permission Values:
+Each permission is given a number:
+  Read (r) = 4
+  Write (w) = 2
+  Execute (x) = 1
+
+Examples for One Category:
+| Permission                     | Value |
+| ------------------------------ | ----- |
+|  r--  (read only)              | 4     |
+|  rw-  (read + write)           | 6     |
+|  r-x  (read + execute)         | 5     |
+|  rwx  (read + write + execute) | 7     |
+|  --x  (execute only)           | 1     |
+|  ---  (no permission)          | 0     |
+
+Common Numeric Modes:
+| Command          | Meaning                                             |
+| ---------------- | --------------------------------------------------- |
+|  chmod 777 file  | Everyone can read/write/execute *(dangerous)*       |
+|  chmod 755 file  | Owner: rwx, Others: r-x *(common for scripts)*      |
+|  chmod 700 file  | Only owner can read/write/execute                   |
+|  chmod 644 file  | Owner: rw-, Others: r-- *(common for config files)* |
+|  chmod 600 file  | Owner: rw-, Others: --- *(private keys)*            |
+
