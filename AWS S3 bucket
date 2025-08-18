@@ -1,0 +1,30 @@
+Steps to Create an S3 Bucket:
+1. Login to AWS Console
+  *.Go to AWS Management Console.
+  *.Search for S3 and open it.
+2. Create Bucket
+  *.Click Create bucket.
+3. Bucket Name
+  *.Enter a unique bucket name (globally unique across AWS).
+      *.Example: my-first-s3-bucket-12345
+  *.Choose AWS Region (e.g., Asia Pacific (Mumbai) ap-south-1).
+4. Bucket Settings
+Block Public Access:
+  *.By default, all public access is blocked (recommended for private data).
+  *.If you want the bucket public (e.g., for hosting a website), uncheck this.
+Bucket Versioning:
+*.Enable if you want to keep multiple versions of files.
+
+Tags:
+  *.Add metadata (optional).
+Default Encryption:
+  *.Can enable encryption (AES-256, KMS).
+5. Create
+  *.Click Create bucket.
+  *.Your bucket will now appear in the S3 console.
+
+Uploading Files
+*.Open your bucket.
+*.Click Upload → Add files.
+*.Choose files from your computer.
+*.Click Upload.
