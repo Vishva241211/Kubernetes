@@ -1,0 +1,28 @@
+1.Install git 
+2.add a and set github user name and email 
+  [git config --global user.name"vishva241211"]
+  [git config --global user.email"vishvav56@gmail.com"]
+Github is ready to work 
+
+How to clone :
+  1.create a new folder for vs code 
+  2.[git clone https://github.com/vishva241211/new.git]
+          open github copy our repositories in a local 
+  3.Go to folder [cd filename]
+
+How to push a file in github:(vs code to github)
+  1.Create a new file name.(file1.txt)
+  2.To see our status.
+        [git status]
+The file are untracked 
+  3.Add a file.
+        [git file1.txt]
+  4.Check status.
+        [git status]
+  Change to be committed
+  5.To commit.
+        [git commit -m "file1.txt file add"]
+  6.To push a file to github 
+        [git push origin main]
+
+  
