@@ -1,0 +1,60 @@
+1. Git Configuration
+  git config --global user.name "Your Name"
+  git config --global user.email "your@email.com"
+  git config --list        # View current config
+2. Starting a Repo
+  git init                # Initialize a new Git repo
+  git clone <url>         # Clone a remote repo
+3. Basic Workflow
+  git status              # Check repo status
+  git add <file>          # Stage file for commit
+  git add .               # Stage all files
+  git commit -m "Message" # Commit staged changes
+  git log                 # Show commit history
+4. Branching
+  git branch              # List branches
+  git branch <name>       # Create new branch
+  git checkout <name>     # Switch branch
+  git checkout -b <name>  # Create & switch to new branch
+  git merge <branch>      # Merge branch into current one
+  git branch -d <name>    # Delete branch
+5. Working with Remote
+  git remote -v           # Show remotes
+  git remote add origin <url>  # Add remote repo
+  git push -u origin main # Push branch to remote
+  git push                # Push changes
+  git pull                # Fetch & merge changes
+  git fetch               # Fetch changes (without merging)
+6. Undoing Changes
+  git checkout -- <file>  # Discard changes in working dir
+  git reset <file>        # Unstage file
+  git reset --hard HEAD   # Reset to last commit
+  git revert <commit>     # Create new commit that undoes a commit
+ 7. Stashing
+  git stash               # Save uncommitted changes
+  git stash list          # Show stashes
+  git stash apply         # Apply latest stash
+  git stash pop           # Apply and remove latest stash
+8. Viewing Differences
+  git diff                # Show unstaged changes
+  git diff --staged       # Show staged changes
+9. Tags (for versions)
+  git tag v1.0            # Create tag
+  git tag                 # List tags
+  git push origin v1.0    # Push tag to remote
+Typical Workflow Example:
+git clone <repo-url>
+git checkout -b feature-branch
+# make changes
+git add .
+git commit -m "Added new feature"
+git push origin feature-branch
+
+
+
+
+
+
+
+
+
