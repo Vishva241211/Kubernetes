@@ -1,0 +1,21 @@
+Create a new folder to github:
+  1.Create a new folder in vs code,
+  2.Open new folder 
+      [cd github2/]
+  3.Use command 
+      [git init]
+  4.See a status 
+      [git status]
+  5.Adding all file to
+      [git add .]
+  6.See a status 
+      [git status]
+  7.To commit 
+      [git commit -m "created"]
+  8.To connect new repositories
+      [git remote add origin]
+  9.To use a branch name
+      [git branch]
+  change a branch name [git branch -M main]
+  10.To push github
+      [git push origin main]
