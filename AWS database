@@ -1,0 +1,52 @@
+How to Create RDS in AWS
+Step 1: Go to RDS
+  *.Login to AWS Management Console
+  *.Search for RDS → Open Amazon RDS dashboard
+Step 2: Create Database
+1.Click “Create database”
+2.Choose Creation method:
+  *.Standard create → full customization
+  *.Easy create → AWS picks defaults (good for beginners)
+Step 3: Choose Engine
+MySQL:
+  *.PostgreSQL
+  *.MariaDB
+  *.Oracle
+  *.SQL Server
+  *.Amazon Aurora
+Example: MySQL
+Step 4: Database Settings
+1.Edition / Version → Choose DB version (e.g., MySQL 8.0)
+2.Templates →
+*.Dev/Test
+*.Production
+*.Free Tier (if eligible) 
+3.DB instance identifier → Name (e.g., mydb-instance)
+4.Credentials → Master username & password
+Step 5: Instance Size
+*.DB instance class (compute power & RAM)
+    *.Example: db.t3.micro (Free tier)
+*.Storage
+    *.General Purpose SSD (gp3) or Provisioned IOPS
+    *.Choose allocated storage (e.g., 20 GB)
+Step 6: Connectivity
+1.VPC → Select your VPC
+2.Subnet group → Choose subnets for DB
+3.Public access:
+    *.Yes → If you want to connect from outside AWS
+    *.No → Only internal apps can access
+4.VPC security group → Allow access (e.g., MySQL port 3306)
+Step 7: Additional Settings
+*.Initial database name (optional)
+*.Backup retention (default 7 days)
+*.Enable auto backups (recommended for production)
+*.Enable monitoring (optional)
+Step 9: Connect to RDS
+  *.Go to Databases → Select your DB
+  *.Copy the Endpoint (DNS name)
+  *.Connect using client:
+For MySQL:
+        mysql -h <RDS-endpoint> -u <username> -p
+Example:
+        mysql -h mydb-instance.c9akciq3df2.us-east-1.rds.amazonaws.com -u admin -p
+                             (Now you have a running RDS database)
