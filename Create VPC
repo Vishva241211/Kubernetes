@@ -1,0 +1,54 @@
+Step 1: Open VPC Dashboard
+  1.Login to AWS Management Console
+  2.Search for VPC
+  3.Click VPC Dashboard
+Step 2: Create a VPC
+  1.Click “Create VPC”
+  2.Choose VPC only (if you want to build everything manually)
+  3.Enter details:
+        *.Name tag: My-VPC
+        *.IPv4 CIDR block: 10.0.0.0/16 (65,536 IPs)
+        *.IPv6 CIDR block: Optional
+        *.Tenancy: Default (shared hardware)
+  4.Click Create VPC .
+Step 3: Create Subnets
+We need at least one Public subnet and one Private subnet.
+  1.Go to Subnets → Create Subnet
+  2.Select your VPC (My-VPC)
+  3.Pick an Availability Zone (e.g., us-east-1a)
+  4.Enter CIDR:
+        *Public Subnet → 10.0.1.0/24
+        *.Private Subnet → 10.0.2.0/24
+  5.Enable Auto-assign Public IPv4 for the Public Subnet
+Step 4: Create Internet Gateway (IGW)
+  1.Go to Internet Gateways → Create IGW
+  2.Name it My-IGW
+  3.Attach it to My-VPC
+Step 5: Configure Route Tables
+  1.Go to Route Tables → Create Route Table
+        *.Name: Public-RT
+        *.VPC: My-VPC
+  2.Add a route:
+        *.Destination: 0.0.0.0/0
+        *.Target: Internet Gateway (My-IGW)
+  3.Associate this route table with Public Subnet
+                Now Public Subnet has internet access.
+Step 6: (Optional) Create NAT Gateway
+Private subnets usually need outbound internet (for updates, patches).
+  1.Allocate an Elastic IP
+  2.Go to NAT Gateway → Create NAT Gateway
+        *.Place it in the Public Subnet
+        *.Attach the Elastic IP
+  3.Create another Route Table → Private-RT
+        *.Route 0.0.0.0/0 → NAT Gateway
+        *.Associate with Private Subnet
+Step 7: Create Security Groups
+  1.Go to Security Groups → Create SG
+Example:
+        *.Web-SG: Allow HTTP (80), HTTPS (443), SSH (22)
+        *.DB-SG: Allow MySQL (3306) only from Web-SG
+At this point, you have a working VPC with:
+  *.Public Subnet (for web servers, bastion hosts)
+  *.Private Subnet (for databases, backend apps)
+  *.Internet Gateway for inbound/outbound internet
+  *.NAT Gateway for private subnet outbound traffic
