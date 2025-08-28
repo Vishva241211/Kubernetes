@@ -1,0 +1,44 @@
+Basic File & Directory Commands:
+pwd                 # Show current directory
+ls                  # List files in current directory
+ls -l               # List with details (permissions, size, date)
+ls -a               # List all, including hidden files
+cd /path/to/dir     # Change directory
+mkdir new_folder    # Create new directory
+rmdir folder_name   # Remove empty directory
+
+File Operations:
+touch file.txt                 # Create empty file
+cp file1.txt file2.txt         # Copy file
+mv file1.txt /path/to/dir/     # Move file
+mv old.txt new.txt             # Rename file
+rm file.txt                    # Delete file
+rm -r folder/                  # Delete folder and contents
+cat file.txt                   # View file content
+nano file.txt                  # Edit file (nano editor)
+
+Permissions & Ownership:
+ls -l                          # Show file permissions
+chmod 755 file.sh              # Change file permissions
+chown user:user file.txt       # Change file owner
+
+System Information:
+whoami                         # Show current user
+uname -a                       # Show system info
+df -h                          # Show disk usage
+free -h                        # Show memory usage
+top                            # Show running processes
+htop                           # Better process viewer (if installed)
+
+Networking:
+ifconfig            # Show network interfaces (use `ip a` if not installed)
+ping google.com     # Test connectivity
+curl ifconfig.me    # Show public IP
+ssh user@host       # Connect to remote server
+scp file.txt user@host:/path/   # Copy file to remote server
+
+Package Management (Ubuntu/Debian):
+sudo apt update                  # Update package list
+sudo apt upgrade                 # Upgrade packages
+sudo apt install package_name    # Install package
+sudo apt remove package_name     # Uninstall package
