@@ -1,0 +1,25 @@
+What is Route 53?
+  Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service provided by AWS.
+It’s used to:
+  1.Register domain names (like mywebsite.com).
+  2.Route internet traffic to AWS resources (like EC2, S3, CloudFront, ELB).
+  3.Check health of resources and perform DNS failover.
+Key Features of Route 53:
+1.Domain Registration
+  *.Buy and manage domain names directly from AWS.
+2.DNS Routing
+  *.Convert domain names (like example.com) into IP addresses (like 192.0.2.1).
+  *.Supports multiple routing policies.
+3.Health Checks & Monitoring
+  *.Continuously checks endpoints (web servers, apps) and redirects traffic if one fails.
+4.Traffic Flow Policies
+  *.Allows latency-based routing, geolocation routing, and weighted routing.
+
+Routing Policies in Route 53
+  1.Simple Routing → One record, one resource (basic DNS).
+  2.Weighted Routing → Distribute traffic based on percentages (e.g., 70% to EC2-A, 30% to EC2-B).
+  3.Latency-Based Routing → Send users to the region with the lowest latency.
+  4.Failover Routing → Active-passive setup (if primary fails, Route 53 redirects to backup).
+  5.Geolocation Routing → Send traffic based on user’s geographic location.
+  6.Geoproximity Routing → Based on user + resource location with bias control.
+  7.Multi-Value Answer → Return multiple IPs for DNS query (like round robin).
