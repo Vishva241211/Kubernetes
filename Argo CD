@@ -1,0 +1,17 @@
+argocd account - Manage account settings
+argocd admin - Contains a set of commands useful for Argo CD administrators and requires direct Kubernetes access
+argocd app - Manage applications
+argocd appset - Manage ApplicationSets
+argocd cert - Manage repository certificates and SSH known hosts entries
+argocd cluster - Manage cluster credentials
+argocd completion - output shell completion code for the specified shell (bash, zsh or fish)
+argocd configure - Manage local configuration
+argocd context - Switch between contexts
+argocd gpg - Manage GPG keys used for signature verification
+argocd login - Log in to Argo CD
+argocd logout - Log out from Argo CD
+argocd proj - Manage projects
+argocd relogin - Refresh an expired authenticate token
+argocd repo - Manage repository connection parameters
+argocd repocreds - Manage credential templates for repositories
+argocd version - Print version information
