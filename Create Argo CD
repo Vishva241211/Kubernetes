@@ -1,0 +1,57 @@
+Step 1: Install Argo CD
+  Argo CD is installed as a set of Kubernetes resources in its own namespace.
+# Create namespace
+kubectl create namespace argocd
+# Install Argo CD (latest stable version)
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+Step 2: Expose the Argo CD API Server
+  By default, the API server is a ClusterIP service (internal only). You need to expose it.
+Option 1: Port-forward (for testing).
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+👉 Access at: https://localhost:8080
+Option 2: LoadBalancer / Ingress (for production)
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+Step 3: Get Initial Admin Password
+  The default username = admin
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d; echo
+
+Step 4: Login to Argo CD
+  Using CLI:
+argocd login <ARGOCD_SERVER> --username admin --password <PASSWORD>
+Using Web UI:
+  *.Open the browser → https://<ARGOCD_SERVER>
+  *.Username: admin
+  *.Password: (from Step 3)
+
+Step 5: Create an Application
+  Applications are the core of Argo CD. You can create them via CLI or YAML.
+CLI method:
+argocd app create myapp \
+  --repo https://github.com/example/repo.git \
+  --path k8s \
+  --dest-server https://kubernetes.default.svc \
+  --dest-namespace default
+YAML method:
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/example/repo.git
+    targetRevision: HEAD
+    path: k8s
+  syncPolicy:
+    automated: {}   # enables auto-sync
+Apply it:
+kubectl apply -f myapp.yaml
+
+Step 6: Sync the Application
+argocd app sync myapp
